@@ -15,7 +15,6 @@ enum ViewType: String, CaseIterable, Identifiable {
     case audioInput = "Audio Input"
     case dictionary = "Dictionary"
     case settings = "Settings"
-    case license = "VoiceInk Pro"
 
     var id: String { rawValue }
 
@@ -31,7 +30,6 @@ enum ViewType: String, CaseIterable, Identifiable {
         case .audioInput: return "mic.fill"
         case .dictionary: return "character.book.closed.fill"
         case .settings: return "gearshape.fill"
-        case .license: return "checkmark.seal.fill"
         }
     }
 }
@@ -55,10 +53,10 @@ struct VisualEffectView: NSViewRepresentable {
 }
 
 struct ContentView: View {
-    private let logger = Logger(subsystem: "com.prakashjoshipax.voiceink", category: "ContentView")
+    private let logger = Logger(subsystem: "com.prakashjoshipax.tala", category: "ContentView")
     @Environment(\.modelContext) private var modelContext
     @Environment(\.colorScheme) private var colorScheme
-    @EnvironmentObject private var engine: VoiceInkEngine
+    @EnvironmentObject private var engine: TalaEngine
     @EnvironmentObject private var whisperModelManager: WhisperModelManager
     @EnvironmentObject private var transcriptionModelManager: TranscriptionModelManager
     @EnvironmentObject private var hotkeyManager: HotkeyManager
@@ -90,18 +88,8 @@ struct ContentView: View {
                                 .cornerRadius(8)
                         }
 
-                        Text("VoiceInk")
+                        Text("Tala")
                             .font(.system(size: 14, weight: .semibold))
-
-                        if case .licensed = licenseViewModel.licenseState {
-                            Text("PRO")
-                                .font(.system(size: 9, weight: .heavy))
-                                .foregroundStyle(.white)
-                                .padding(.horizontal, 4)
-                                .padding(.vertical, 2)
-                                .background(Color.blue)
-                                .cornerRadius(4)
-                        }
 
                         Spacer()
                     }
@@ -119,7 +107,7 @@ struct ContentView: View {
                 }
             }
             .listStyle(.sidebar)
-            .navigationTitle("VoiceInk")
+            .navigationTitle("Tala")
             .navigationSplitViewColumnWidth(210)
         } detail: {
             if let selectedView = selectedView {
@@ -148,8 +136,6 @@ struct ContentView: View {
                     selectedView = .settings
                 case "AI Models":
                     selectedView = .models
-                case "VoiceInk Pro":
-                    selectedView = .license
                 case "History":
                     selectedView = .history
                 case "Permissions":
@@ -188,8 +174,6 @@ struct ContentView: View {
             PowerModeView()
         case .settings:
             SettingsView()
-        case .license:
-            LicenseManagementView()
         case .permissions:
             PermissionsView()
         }

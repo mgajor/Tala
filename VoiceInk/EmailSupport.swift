@@ -3,8 +3,8 @@ import SwiftUI
 import AppKit
 
 struct EmailSupport {
-    private static let supportEmailAddress = "support@tryvoiceink.com"
-    private static let supportEmailSubject = "VoiceInk Support Request"
+    private static let supportEmailAddress = "support@trytala.com"
+    private static let supportEmailSubject = "Tala Support Request"
 
     static func generateSupportEmailBody() -> String {
         let systemInfo = SystemInfoService.shared.getSystemInfoString()
@@ -23,7 +23,7 @@ struct EmailSupport {
 
 
         ## 📋 COMMON ISSUES:
-        Check out our Common Issues page before sending an email: https://tryvoiceink.com/common-issues
+        Check out our Common Issues page before sending an email: https://trytala.com/common-issues
         ------------------------
 
         System Information:

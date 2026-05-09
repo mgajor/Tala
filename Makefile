@@ -39,16 +39,16 @@ whisper:
 
 setup: whisper
 	@echo "Whisper framework is ready at $(FRAMEWORK_PATH)"
-	@echo "Please ensure your Xcode project references the framework from this new location."
+	@echo "Please ensure your Xcode project references the framework from this location."
 
 build: setup
-	xcodebuild -project VoiceInk.xcodeproj -scheme VoiceInk -configuration Debug CODE_SIGN_IDENTITY="" build
+	xcodebuild -project VoiceInk.xcodeproj -scheme Tala -configuration Debug CODE_SIGN_IDENTITY="" build
 
 # Build for local use without Apple Developer certificate
 local: check setup
-	@echo "Building VoiceInk for local use (no Apple Developer certificate required)..."
+	@echo "Building Tala for local use (no Apple Developer certificate required)..."
 	@rm -rf "$(LOCAL_DERIVED_DATA)"
-	xcodebuild -project VoiceInk.xcodeproj -scheme VoiceInk -configuration Debug \
+	xcodebuild -project VoiceInk.xcodeproj -scheme Tala -configuration Debug \
 		-derivedDataPath "$(LOCAL_DERIVED_DATA)" \
 		-xcconfig LocalBuild.xcconfig \
 		CODE_SIGN_IDENTITY="-" \
@@ -58,37 +58,45 @@ local: check setup
 		CODE_SIGN_ENTITLEMENTS=$(CURDIR)/VoiceInk/VoiceInk.local.entitlements \
 		SWIFT_ACTIVE_COMPILATION_CONDITIONS='$$(inherited) LOCAL_BUILD' \
 		build
-	@APP_PATH="$(LOCAL_DERIVED_DATA)/Build/Products/Debug/VoiceInk.app" && \
+	@APP_PATH="$(LOCAL_DERIVED_DATA)/Build/Products/Debug/Tala.app" && \
 	if [ -d "$$APP_PATH" ]; then \
-		echo "Copying VoiceInk.app to ~/Downloads..."; \
-		rm -rf "$$HOME/Downloads/VoiceInk.app"; \
-		ditto "$$APP_PATH" "$$HOME/Downloads/VoiceInk.app"; \
-		xattr -cr "$$HOME/Downloads/VoiceInk.app"; \
+		if [ ! -d "$$APP_PATH/Contents/Resources/KeyboardShortcuts_KeyboardShortcuts.bundle" ]; then \
+			echo "Error: KeyboardShortcuts resource bundle is missing from built Tala.app"; \
+			exit 1; \
+		fi; \
+		echo "Copying Tala.app to ~/Downloads..."; \
+		rm -rf "$$HOME/Downloads/Tala.app"; \
+		ditto "$$APP_PATH" "$$HOME/Downloads/Tala.app"; \
+		xattr -cr "$$HOME/Downloads/Tala.app"; \
+		if [ ! -d "$$HOME/Downloads/Tala.app/Contents/Resources/KeyboardShortcuts_KeyboardShortcuts.bundle" ]; then \
+			echo "Error: KeyboardShortcuts resource bundle is missing from copied Tala.app"; \
+			exit 1; \
+		fi; \
 		echo ""; \
-		echo "Build complete! App saved to: ~/Downloads/VoiceInk.app"; \
-		echo "Run with: open ~/Downloads/VoiceInk.app"; \
+		echo "Build complete! App saved to: ~/Downloads/Tala.app"; \
+		echo "Run with: open ~/Downloads/Tala.app"; \
 		echo ""; \
 		echo "Limitations of local builds:"; \
 		echo "  - No iCloud dictionary sync"; \
 		echo "  - No automatic updates (pull new code and rebuild to update)"; \
 	else \
-		echo "Error: Could not find built VoiceInk.app at $$APP_PATH"; \
+		echo "Error: Could not find built Tala.app at $$APP_PATH"; \
 		exit 1; \
 	fi
 
 # Run application
 run:
-	@if [ -d "$$HOME/Downloads/VoiceInk.app" ]; then \
-		echo "Opening ~/Downloads/VoiceInk.app..."; \
-		open "$$HOME/Downloads/VoiceInk.app"; \
+	@if [ -d "$$HOME/Downloads/Tala.app" ]; then \
+		echo "Opening ~/Downloads/Tala.app..."; \
+		open "$$HOME/Downloads/Tala.app"; \
 	else \
-		echo "Looking for VoiceInk.app in DerivedData..."; \
-		APP_PATH=$$(find "$$HOME/Library/Developer/Xcode/DerivedData" -name "VoiceInk.app" -type d | head -1) && \
+		echo "Looking for Tala.app in DerivedData..."; \
+		APP_PATH=$$(find "$$HOME/Library/Developer/Xcode/DerivedData" -name "Tala.app" -type d | head -1) && \
 		if [ -n "$$APP_PATH" ]; then \
 			echo "Found app at: $$APP_PATH"; \
 			open "$$APP_PATH"; \
 		else \
-			echo "VoiceInk.app not found. Please run 'make build' or 'make local' first."; \
+			echo "Tala.app not found. Please run 'make build' or 'make local' first."; \
 			exit 1; \
 		fi; \
 	fi
@@ -104,10 +112,10 @@ help:
 	@echo "Available targets:"
 	@echo "  check/healthcheck  Check if required CLI tools are installed"
 	@echo "  whisper            Clone and build whisper.cpp XCFramework"
-	@echo "  setup              Copy whisper XCFramework to VoiceInk project"
-	@echo "  build              Build the VoiceInk Xcode project"
+	@echo "  setup              Copy whisper XCFramework to Tala project"
+	@echo "  build              Build the Tala Xcode project"
 	@echo "  local              Build for local use (no Apple Developer certificate needed)"
-	@echo "  run                Launch the built VoiceInk app"
+	@echo "  run                Launch the built Tala app"
 	@echo "  dev                Build and run the app (for development)"
 	@echo "  all                Run full build process (default)"
 	@echo "  clean              Remove build artifacts"

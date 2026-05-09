@@ -9,9 +9,9 @@ class MiniWindowManager: ObservableObject {
 
     private let makeView: (MiniWindowManager) -> AnyView
 
-    init(engine: VoiceInkEngine, recorder: Recorder) {
+    init(engine: TalaEngine, recorder: Recorder) {
         guard let enhancementService = engine.enhancementService else {
-            preconditionFailure("VoiceInkEngine.enhancementService must be non-nil when creating MiniWindowManager")
+            preconditionFailure("TalaEngine.enhancementService must be non-nil when creating MiniWindowManager")
         }
         self.makeView = { manager in
             AnyView(

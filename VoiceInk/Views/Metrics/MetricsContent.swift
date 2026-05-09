@@ -3,9 +3,8 @@ import SwiftData
 import os
 
 struct MetricsContent: View {
-    private let logger = Logger(subsystem: "com.prakashjoshipax.VoiceInk", category: "MetricsContent")
+    private let logger = Logger(subsystem: "com.prakashjoshipax.Tala", category: "MetricsContent")
     let modelContext: ModelContext
-    let licenseState: LicenseViewModel.LicenseState
 
     @State private var totalCount: Int = 0
     @State private var totalWords: Int = 0
@@ -27,10 +26,7 @@ struct MetricsContent: View {
                         VStack(spacing: 24) {
                             heroSection
                             metricsSection
-                            HStack(alignment: .top, spacing: 18) {
-                                HelpAndResourcesSection()
-                                DashboardPromotionsSection(licenseState: licenseState)
-                            }
+                            HelpAndResourcesSection()
 
                             Spacer(minLength: 20)
 
@@ -175,7 +171,7 @@ struct MetricsContent: View {
                     .font(.system(size: 36, design: .rounded))
                     .foregroundStyle(.white)
                  +
-                 Text(" with VoiceInk")
+                 Text(" with Tala")
                     .fontWeight(.bold)
                     .foregroundColor(.white.opacity(0.85))
                 )
@@ -213,7 +209,7 @@ struct MetricsContent: View {
                 icon: "mic.fill",
                 title: "Sessions Recorded",
                 value: "\(totalCount)",
-                detail: "VoiceInk sessions completed",
+                detail: "Tala sessions completed",
                 color: .purple
             )
 
@@ -231,7 +227,7 @@ struct MetricsContent: View {
                 value: averageWordsPerMinute > 0
                     ? String(format: "%.1f", averageWordsPerMinute)
                     : "–",
-                detail: "VoiceInk vs. typing by hand",
+                detail: "Tala vs. typing by hand",
                 color: .yellow
             )
             
@@ -272,7 +268,7 @@ struct MetricsContent: View {
     
     private var heroSubtitle: String {
         guard totalCount > 0 else {
-            return "Your VoiceInk journey starts with your first recording."
+            return "Your Tala journey starts with your first recording."
         }
 
         let wordsText = Formatters.formattedNumber(totalWords)

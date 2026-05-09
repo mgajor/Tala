@@ -7,12 +7,12 @@ import AppIntents
 import FluidAudio
 
 @main
-struct VoiceInkApp: App {
+struct TalaApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let container: ModelContainer
     let containerInitializationFailed: Bool
 
-    @StateObject private var engine: VoiceInkEngine
+    @StateObject private var engine: TalaEngine
     @StateObject private var whisperModelManager: WhisperModelManager
     @StateObject private var fluidAudioModelManager: FluidAudioModelManager
     @StateObject private var transcriptionModelManager: TranscriptionModelManager
@@ -24,7 +24,6 @@ struct VoiceInkApp: App {
     @StateObject private var enhancementService: AIEnhancementService
     @StateObject private var activeWindowService = ActiveWindowService.shared
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
-    @AppStorage("enableAnnouncements") private var enableAnnouncements = true
     @State private var showMenuBarIcon = true
 
     // Audio cleanup manager for automatic deletion of old audio files
@@ -47,7 +46,7 @@ struct VoiceInkApp: App {
             UserDefaults.standard.set(hasEnabledPowerModes, forKey: "powerModeUIFlag")
         }
 
-        let logger = Logger(subsystem: "com.prakashjoshipax.voiceink", category: "Initialization")
+        let logger = Logger(subsystem: "com.prakashjoshipax.tala", category: "Initialization")
         // Keep existing model order stable; append new models after synced entities.
         let schema = Schema([
             Transcription.self,
@@ -72,7 +71,7 @@ struct VoiceInkApp: App {
             DispatchQueue.main.async {
                 let alert = NSAlert()
                 alert.messageText = "Storage Warning"
-                alert.informativeText = "VoiceInk couldn't access its storage location. Your transcriptions will not be saved between sessions."
+                alert.informativeText = "Tala couldn't access its storage location. Your transcriptions will not be saved between sessions."
                 alert.alertStyle = .warning
                 alert.addButton(withTitle: "OK")
                 alert.runModal()
@@ -105,7 +104,7 @@ struct VoiceInkApp: App {
 
         // 1. Create modelsDirectory URL
         let appSupportDirectory = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("com.prakashjoshipax.VoiceInk")
+            .appendingPathComponent("com.prakashjoshipax.Tala")
         let modelsDirectory = appSupportDirectory.appendingPathComponent("WhisperModels")
 
         // 2. Create model managers
@@ -120,7 +119,7 @@ struct VoiceInkApp: App {
         let recorderUIManager = RecorderUIManager()
 
         // 4. Create engine
-        let engine = VoiceInkEngine(
+        let engine = TalaEngine(
             modelContext: resolvedContainer.mainContext,
             whisperModelManager: whisperModelManager,
             transcriptionModelManager: transcriptionModelManager,
@@ -187,7 +186,7 @@ struct VoiceInkApp: App {
         do {
             // Create app-specific Application Support directory URL
             let appSupportURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-                .appendingPathComponent("com.prakashjoshipax.VoiceInk", isDirectory: true)
+                .appendingPathComponent("com.prakashjoshipax.Tala", isDirectory: true)
 
             // Create the directory if it doesn't exist
             try? FileManager.default.createDirectory(at: appSupportURL, withIntermediateDirectories: true)
@@ -211,7 +210,7 @@ struct VoiceInkApp: App {
             #if LOCAL_BUILD
             let dictionaryCloudKit: ModelConfiguration.CloudKitDatabase = .none
             #else
-            let dictionaryCloudKit: ModelConfiguration.CloudKitDatabase = .private("iCloud.com.prakashjoshipax.VoiceInk")
+            let dictionaryCloudKit: ModelConfiguration.CloudKitDatabase = .private("iCloud.com.prakashjoshipax.Tala")
             #endif
             let dictionaryConfig = ModelConfiguration(
                 "dictionary",
@@ -292,7 +291,7 @@ struct VoiceInkApp: App {
                         if containerInitializationFailed {
                             let alert = NSAlert()
                             alert.messageText = "Critical Storage Error"
-                            alert.informativeText = "VoiceInk cannot initialize its storage system. The app cannot continue.\n\nPlease try reinstalling the app or contact support if the issue persists."
+                            alert.informativeText = "Tala cannot initialize its storage system. The app cannot continue.\n\nPlease try reinstalling the app or contact support if the issue persists."
                             alert.alertStyle = .critical
                             alert.addButton(withTitle: "Quit")
                             alert.runModal()
@@ -302,9 +301,6 @@ struct VoiceInkApp: App {
                         }
 
                         updaterViewModel.silentlyCheckForUpdates()
-                        if enableAnnouncements {
-                            AnnouncementsService.shared.start()
-                        }
 
                         // Start the automatic audio cleanup process only if transcript cleanup is not enabled
                         if !UserDefaults.standard.bool(forKey: "IsTranscriptionCleanupEnabled") {
@@ -324,7 +320,6 @@ struct VoiceInkApp: App {
                         WindowManager.shared.configureWindow(window)
                     })
                     .onDisappear {
-                        AnnouncementsService.shared.stop()
                         whisperModelManager.unloadModel()
 
                         // Stop the automatic audio cleanup process
@@ -342,7 +337,7 @@ struct VoiceInkApp: App {
                     .environmentObject(enhancementService)
                     .frame(minWidth: 880, minHeight: 780)
                     .background(WindowAccessor { window in
-                        if window.identifier == nil || window.identifier != NSUserInterfaceItemIdentifier("com.prakashjoshipax.voiceink.onboardingWindow") {
+                        if window.identifier == nil || window.identifier != NSUserInterfaceItemIdentifier("com.prakashjoshipax.tala.onboardingWindow") {
                             WindowManager.shared.configureOnboardingPanel(window)
                         }
                     })

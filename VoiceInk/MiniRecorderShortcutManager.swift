@@ -32,7 +32,7 @@ extension KeyboardShortcuts.Name {
 
 @MainActor
 class MiniRecorderShortcutManager: ObservableObject {
-    private var engine: VoiceInkEngine
+    private var engine: TalaEngine
     private var recorderUIManager: RecorderUIManager
     private var visibilityTask: Task<Void, Never>?
     
@@ -44,7 +44,7 @@ class MiniRecorderShortcutManager: ObservableObject {
     private var isEscapeHandlerSetup = false
     private var escapeTimeoutTask: Task<Void, Never>?
     
-    init(engine: VoiceInkEngine, recorderUIManager: RecorderUIManager) {
+    init(engine: TalaEngine, recorderUIManager: RecorderUIManager) {
         self.engine = engine
         self.recorderUIManager = recorderUIManager
         setupVisibilityObserver()

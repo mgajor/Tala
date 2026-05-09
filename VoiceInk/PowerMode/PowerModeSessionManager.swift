@@ -33,7 +33,7 @@ class PowerModeSessionManager {
         recoverSession()
     }
 
-    /// Configure with new VoiceInkEngine-based provider.
+    /// Configure with new TalaEngine-based provider.
     func configure(engine: any PowerModeStateProvider, enhancementService: AIEnhancementService) {
         self.stateProvider = engine
         self.enhancementService = enhancementService

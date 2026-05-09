@@ -3,10 +3,10 @@ import KeyboardShortcuts
 
 @MainActor
 class PowerModeShortcutManager {
-    private weak var engine: VoiceInkEngine?
+    private weak var engine: TalaEngine?
     private var registeredPowerModeIds: Set<UUID> = []
 
-    init(engine: VoiceInkEngine) {
+    init(engine: TalaEngine) {
         self.engine = engine
 
         setupPowerModeHotkeys()
@@ -69,7 +69,7 @@ class PowerModeShortcutManager {
         await engine.recorderUIManager?.toggleMiniRecorder(powerModeId: powerModeId)
     }
 
-    private func canProcessHotkeyAction(engine: VoiceInkEngine) -> Bool {
+    private func canProcessHotkeyAction(engine: TalaEngine) -> Bool {
         engine.recordingState != .transcribing &&
         engine.recordingState != .enhancing &&
         engine.recordingState != .busy

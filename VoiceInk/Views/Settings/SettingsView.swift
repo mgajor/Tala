@@ -18,7 +18,6 @@ struct SettingsView: View {
     @ObservedObject private var playbackController = PlaybackController.shared
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = true
     @AppStorage("autoUpdateCheck") private var autoUpdateCheck = true
-    @AppStorage("enableAnnouncements") private var enableAnnouncements = true
     @AppStorage("restoreClipboardAfterPaste") private var restoreClipboardAfterPaste = true
     @AppStorage("clipboardRestoreDelay") private var clipboardRestoreDelay = 2.0
     @AppStorage("useAppleScriptPaste") private var useAppleScriptPaste = false
@@ -218,15 +217,6 @@ struct SettingsView: View {
                         updaterViewModel.toggleAutoUpdates(newValue)
                     }
 
-                Toggle("Show Announcements", isOn: $enableAnnouncements)
-                    .onChange(of: enableAnnouncements) { _, newValue in
-                        if newValue {
-                            AnnouncementsService.shared.start()
-                        } else {
-                            AnnouncementsService.shared.stop()
-                        }
-                    }
-
                 HStack {
                     Button("Check for Updates") {
                         updaterViewModel.checkForUpdates()
@@ -245,7 +235,7 @@ struct SettingsView: View {
             } header: {
                 Text("Privacy")
             } footer: {
-                Text("Control how VoiceInk handles your transcription data and audio recordings.")
+                Text("Control how Tala handles your transcription data and audio recordings.")
             }
 
             // MARK: - Backup
@@ -421,7 +411,7 @@ struct PowerModeSection: View {
                 isEnabled: toggleBinding,
                 label: "Power Mode",
                 infoMessage: "Apply custom settings based on active app or website.",
-                infoURL: "https://tryvoiceink.com/docs/power-mode"
+                infoURL: "https://trytala.com/docs/power-mode"
             ) {
                 Toggle(isOn: $powerModePersistSettings) {
                     HStack(spacing: 4) {

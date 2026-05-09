@@ -12,7 +12,7 @@ class AudioTranscriptionService: ObservableObject {
     private let modelContext: ModelContext
     private let enhancementService: AIEnhancementService?
     private let promptDetectionService = PromptDetectionService()
-    private let logger = Logger(subsystem: "com.prakashjoshipax.voiceink", category: "AudioTranscriptionService")
+    private let logger = Logger(subsystem: "com.prakashjoshipax.tala", category: "AudioTranscriptionService")
     private let serviceRegistry: TranscriptionServiceRegistry
 
     enum TranscriptionError: Error {
@@ -22,7 +22,7 @@ class AudioTranscriptionService: ObservableObject {
         case invalidAudioFormat
     }
 
-    init(modelContext: ModelContext, engine: VoiceInkEngine) {
+    init(modelContext: ModelContext, engine: TalaEngine) {
         self.modelContext = modelContext
         self.enhancementService = engine.enhancementService
         self.serviceRegistry = TranscriptionServiceRegistry(modelProvider: engine.whisperModelManager, modelsDirectory: engine.whisperModelManager.modelsDirectory, modelContext: modelContext)
@@ -66,7 +66,7 @@ class AudioTranscriptionService: ObservableObject {
             let audioAsset = AVURLAsset(url: url)
             let duration = CMTimeGetSeconds(try await audioAsset.load(.duration))
             let recordingsDirectory = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-                .appendingPathComponent("com.prakashjoshipax.VoiceInk")
+                .appendingPathComponent("com.prakashjoshipax.Tala")
                 .appendingPathComponent("Recordings")
             
             let fileName = "retranscribed_\(UUID().uuidString).wav"

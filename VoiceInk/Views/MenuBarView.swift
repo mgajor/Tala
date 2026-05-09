@@ -2,7 +2,7 @@ import SwiftUI
 import LaunchAtLogin
 
 struct MenuBarView: View {
-    @EnvironmentObject var engine: VoiceInkEngine
+    @EnvironmentObject var engine: TalaEngine
     @EnvironmentObject var recorderUIManager: RecorderUIManager
     @EnvironmentObject var transcriptionModelManager: TranscriptionModelManager
     @EnvironmentObject var whisperModelManager: WhisperModelManager
@@ -239,7 +239,7 @@ struct MenuBarView: View {
             
             Divider()
 
-            Button("Quit VoiceInk") {
+            Button("Quit Tala") {
                 NSApplication.shared.terminate(nil)
             }
         }

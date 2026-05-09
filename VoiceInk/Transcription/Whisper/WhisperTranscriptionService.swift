@@ -5,7 +5,7 @@ import os
 class WhisperTranscriptionService: TranscriptionService {
 
     private var whisperContext: WhisperContext?
-    private let logger = Logger(subsystem: "com.prakashjoshipax.voiceink", category: "WhisperTranscriptionService")
+    private let logger = Logger(subsystem: "com.prakashjoshipax.tala", category: "WhisperTranscriptionService")
     private let modelsDirectory: URL
     private weak var modelProvider: (any WhisperModelProvider)?
 
@@ -16,7 +16,7 @@ class WhisperTranscriptionService: TranscriptionService {
 
     func transcribe(audioURL: URL, model: any TranscriptionModel) async throws -> String {
         guard model.provider == .whisper else {
-            throw VoiceInkEngineError.modelLoadFailed
+            throw TalaEngineError.modelLoadFailed
         }
 
         logger.notice("Initiating local transcription for model: \(model.displayName, privacy: .public)")
@@ -34,7 +34,7 @@ class WhisperTranscriptionService: TranscriptionService {
             let resolvedURL: URL? = await modelProvider?.availableModels.first(where: { $0.name == model.name })?.url
             guard let modelURL = resolvedURL, FileManager.default.fileExists(atPath: modelURL.path) else {
                 logger.error("❌ Model file not found for: \(model.name, privacy: .public)")
-                throw VoiceInkEngineError.modelLoadFailed
+                throw TalaEngineError.modelLoadFailed
             }
 
             logger.notice("Loading model: \(model.name, privacy: .public)")
@@ -42,13 +42,13 @@ class WhisperTranscriptionService: TranscriptionService {
                 whisperContext = try await WhisperContext.createContext(path: modelURL.path)
             } catch {
                 logger.error("❌ Failed to load model: \(model.name, privacy: .public) - \(error.localizedDescription, privacy: .public)")
-                throw VoiceInkEngineError.modelLoadFailed
+                throw TalaEngineError.modelLoadFailed
             }
         }
 
         guard let whisperContext = whisperContext else {
             logger.error("❌ Cannot transcribe: Model could not be loaded")
-            throw VoiceInkEngineError.modelLoadFailed
+            throw TalaEngineError.modelLoadFailed
         }
 
         // Read audio data
@@ -63,7 +63,7 @@ class WhisperTranscriptionService: TranscriptionService {
 
         guard success else {
             logger.error("❌ Core transcription engine failed (whisper_full).")
-            throw VoiceInkEngineError.whisperCoreFailed
+            throw TalaEngineError.whisperCoreFailed
         }
 
         let text = await whisperContext.getTranscription()

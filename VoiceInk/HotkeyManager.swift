@@ -53,8 +53,8 @@ class HotkeyManager: ObservableObject {
         }
     }
     
-    private let logger = Logger(subsystem: "com.prakashjoshipax.voiceink", category: "HotkeyManager")
-    private var engine: VoiceInkEngine
+    private let logger = Logger(subsystem: "com.prakashjoshipax.tala", category: "HotkeyManager")
+    private var engine: TalaEngine
     private var recorderUIManager: RecorderUIManager
     private var miniRecorderShortcutManager: MiniRecorderShortcutManager
     private var powerModeShortcutManager: PowerModeShortcutManager
@@ -148,7 +148,7 @@ class HotkeyManager: ObservableObject {
         }
     }
     
-    init(engine: VoiceInkEngine, recorderUIManager: RecorderUIManager) {
+    init(engine: TalaEngine, recorderUIManager: RecorderUIManager) {
         self.selectedHotkey1 = HotkeyOption(rawValue: UserDefaults.standard.string(forKey: "selectedHotkey1") ?? "") ?? .rightCommand
         self.selectedHotkey2 = HotkeyOption(rawValue: UserDefaults.standard.string(forKey: "selectedHotkey2") ?? "") ?? .none
 

@@ -10,9 +10,9 @@ class NotchWindowManager: ObservableObject {
     private let makeView: (NotchWindowManager) -> AnyView
     private let enhancementService: AIEnhancementService
 
-    init(engine: VoiceInkEngine, recorder: Recorder) {
+    init(engine: TalaEngine, recorder: Recorder) {
         guard let enhancementService = engine.enhancementService else {
-            preconditionFailure("VoiceInkEngine.enhancementService must be non-nil when creating NotchWindowManager")
+            preconditionFailure("TalaEngine.enhancementService must be non-nil when creating NotchWindowManager")
         }
         self.enhancementService = enhancementService
         self.makeView = { manager in

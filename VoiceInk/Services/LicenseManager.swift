@@ -6,11 +6,11 @@ final class LicenseManager {
     static let shared = LicenseManager()
 
     private let keychain = KeychainService.shared
-    private let logger = Logger(subsystem: "com.prakashjoshipax.voiceink", category: "LicenseManager")
+    private let logger = Logger(subsystem: "com.prakashjoshipax.tala", category: "LicenseManager")
 
-    private let licenseKeyIdentifier = "voiceink.license.key"
-    private let trialStartDateIdentifier = "voiceink.license.trialStartDate"
-    private let activationIdIdentifier = "voiceink.license.activationId"
+    private let licenseKeyIdentifier = "tala.license.key"
+    private let trialStartDateIdentifier = "tala.license.trialStartDate"
+    private let activationIdIdentifier = "tala.license.activationId"
 
     private init() {}
 

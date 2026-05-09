@@ -379,7 +379,7 @@ struct AudioPlayerView: View {
     @State private var isReEnhancing = false
     @State private var bannerState: BannerState?
     @State private var showPromptPopover = false
-    @EnvironmentObject private var engine: VoiceInkEngine
+    @EnvironmentObject private var engine: TalaEngine
     @EnvironmentObject private var enhancementService: AIEnhancementService
     @Environment(\.modelContext) private var modelContext
 

@@ -233,8 +233,8 @@ struct ModelManagementView: View {
                             .buttonStyle(.plain)
 
                             InfoTip(
-                                "Add a custom fine-tuned whisper model to use with VoiceInk. Select the downloaded .bin file.",
-                                learnMoreURL: "https://tryvoiceink.com/docs/custom-local-whisper-models"
+                                "Add a custom fine-tuned whisper model to use with Tala. Select the downloaded .bin file.",
+                                learnMoreURL: "https://trytala.com/docs/custom-local-whisper-models"
                             )
                             .help("Read more about custom local models")
                         }

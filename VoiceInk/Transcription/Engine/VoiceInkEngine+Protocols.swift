@@ -2,11 +2,11 @@ import Foundation
 
 // MARK: - RecorderStateProvider
 
-extension VoiceInkEngine: RecorderStateProvider {}
+extension TalaEngine: RecorderStateProvider {}
 
 // MARK: - PowerModeStateProvider
 
-extension VoiceInkEngine: PowerModeStateProvider {
+extension TalaEngine: PowerModeStateProvider {
     var currentTranscriptionModel: (any TranscriptionModel)? {
         transcriptionModelManager.currentTranscriptionModel
     }

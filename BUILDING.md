@@ -1,6 +1,6 @@
-# Building VoiceInk
+# Building Tala
 
-This guide provides detailed instructions for building VoiceInk from source.
+This guide provides detailed instructions for building Tala from source.
 
 ## Prerequisites
 
@@ -12,13 +12,13 @@ Before you begin, ensure you have:
 
 ## Quick Start with Makefile (Recommended)
 
-The easiest way to build VoiceInk is using the included Makefile, which automates the entire build process including building and linking the whisper framework.
+The easiest way to build Tala is using the included Makefile, which automates the entire build process including building and linking the whisper framework.
 
 ### Simple Build Commands
 
 ```bash
 # Clone the repository
-git clone https://github.com/Beingpax/VoiceInk.git
+git clone https://github.com/Beingpax/Tala.git
 cd VoiceInk
 
 # Build everything (recommended for first-time setup)
@@ -33,9 +33,9 @@ make dev
 - `make check` or `make healthcheck` - Verify all required tools are installed
 - `make whisper` - Clone and build whisper.cpp XCFramework automatically
 - `make setup` - Prepare the whisper framework for linking
-- `make build` - Build the VoiceInk Xcode project
+- `make build` - Build the Tala Xcode project
 - `make local` - Build for local use (no Apple Developer certificate needed)
-- `make run` - Launch the built VoiceInk app
+- `make run` - Launch the built Tala app
 - `make dev` - Build and run (ideal for development workflow)
 - `make all` - Complete build process (default)
 - `make clean` - Remove build artifacts and dependencies
@@ -59,13 +59,13 @@ This approach ensures consistent builds across different machines and eliminates
 If you don't have an Apple Developer certificate, use `make local`:
 
 ```bash
-git clone https://github.com/Beingpax/VoiceInk.git
+git clone https://github.com/Beingpax/Tala.git
 cd VoiceInk
 make local
-open ~/Downloads/VoiceInk.app
+open ~/Downloads/Tala.app
 ```
 
-This builds VoiceInk with ad-hoc signing using a separate build configuration (`LocalBuild.xcconfig`) that requires no Apple Developer account.
+This builds Tala with ad-hoc signing using a separate build configuration (`LocalBuild.xcconfig`) that requires no Apple Developer account.
 
 ### How It Works
 
@@ -92,11 +92,11 @@ cd whisper.cpp
 ```
 This will create the XCFramework at `build-apple/whisper.xcframework`.
 
-### Building VoiceInk
+### Building Tala
 
-1. Clone the VoiceInk repository:
+1. Clone the Tala repository:
 ```bash
-git clone https://github.com/Beingpax/VoiceInk.git
+git clone https://github.com/Beingpax/Tala.git
 cd VoiceInk
 ```
 
@@ -136,4 +136,4 @@ If you encounter any build issues:
 4. Verify all dependencies are properly installed
 5. Make sure whisper.xcframework is properly built and linked
 
-For more help, please check the [issues](https://github.com/Beingpax/VoiceInk/issues) section or create a new issue. 
+For more help, please check the [issues](https://github.com/Beingpax/Tala/issues) section or create a new issue. 

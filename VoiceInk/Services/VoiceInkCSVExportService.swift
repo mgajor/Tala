@@ -3,14 +3,14 @@ import Foundation
 import AppKit
 import SwiftData
 
-class VoiceInkCSVExportService {
+class TalaCSVExportService {
     
     func exportTranscriptionsToCSV(transcriptions: [Transcription]) {
         let csvString = generateCSV(for: transcriptions)
         
         let savePanel = NSSavePanel()
         savePanel.allowedContentTypes = [.commaSeparatedText]
-        savePanel.nameFieldStringValue = "VoiceInk-transcription.csv"
+        savePanel.nameFieldStringValue = "Tala-transcription.csv"
         
         savePanel.begin { result in
             if result == .OK, let url = savePanel.url {

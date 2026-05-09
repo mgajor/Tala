@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct VoiceInkButton: View {
+struct TalaButton: View {
     let title: String
     let action: () -> Void
     var isDisabled: Bool = false
@@ -39,7 +39,7 @@ struct PowerModeEmptyStateView: View {
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
             
-            VoiceInkButton(
+            TalaButton(
                 title: "Add New Power Mode",
                 action: action
             )

@@ -1,14 +1,14 @@
 //
-//  VoiceInkTests.swift
-//  VoiceInkTests
+//  TalaTests.swift
+//  TalaTests
 //
 //  Created by Prakash Joshi on 15/10/2024.
 //
 
 import Testing
-@testable import VoiceInk
+@testable import Tala
 
-struct VoiceInkTests {
+struct TalaTests {
 
     @Test func example() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.

@@ -5,11 +5,11 @@ import OSLog
 class WindowManager: NSObject {
     static let shared = WindowManager()
 
-    private static let mainWindowIdentifier = NSUserInterfaceItemIdentifier("com.prakashjoshipax.voiceink.mainWindow")
-    private static let onboardingWindowIdentifier = NSUserInterfaceItemIdentifier("com.prakashjoshipax.voiceink.onboardingWindow")
-    private static let mainWindowAutosaveName = NSWindow.FrameAutosaveName("VoiceInkMainWindowFrame")
+    private static let mainWindowIdentifier = NSUserInterfaceItemIdentifier("com.prakashjoshipax.tala.mainWindow")
+    private static let onboardingWindowIdentifier = NSUserInterfaceItemIdentifier("com.prakashjoshipax.tala.onboardingWindow")
+    private static let mainWindowAutosaveName = NSWindow.FrameAutosaveName("TalaMainWindowFrame")
 
-    private let logger = Logger(subsystem: "com.prakashjoshipax.voiceink", category: "WindowManager")
+    private let logger = Logger(subsystem: "com.prakashjoshipax.tala", category: "WindowManager")
     private weak var mainWindow: NSWindow?
     private var didApplyInitialPlacement = false
 
@@ -32,7 +32,7 @@ class WindowManager: NSObject {
         window.titleVisibility = .hidden
         window.backgroundColor = .windowBackgroundColor
         window.isReleasedWhenClosed = false
-        window.title = "VoiceInk"
+        window.title = "Tala"
         window.collectionBehavior = [.fullScreenPrimary]
         window.level = .normal
         window.isOpaque = true
@@ -58,7 +58,7 @@ class WindowManager: NSObject {
         window.backgroundColor = .clear
         window.isReleasedWhenClosed = false
         window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
-        window.title = "VoiceInk Onboarding"
+        window.title = "Tala Onboarding"
         window.isOpaque = false
         window.minSize = NSSize(width: 900, height: 780)
         window.makeKeyAndOrderFront(nil)

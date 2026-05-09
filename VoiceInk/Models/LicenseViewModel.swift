@@ -19,7 +19,7 @@ class LicenseViewModel: ObservableObject {
 
     private let trialPeriodDays = 7
     private let polarService = PolarService()
-    private let logger = Logger(subsystem: "com.prakashjoshipax.voiceink", category: "LicenseViewModel")
+    private let logger = Logger(subsystem: "com.prakashjoshipax.tala", category: "LicenseViewModel")
     private let userDefaults = UserDefaults.standard
     private let licenseManager = LicenseManager.shared
 
@@ -47,7 +47,7 @@ class LicenseViewModel: ObservableObject {
 
             // If we have a license key, trust that it's licensed
             // Skip server validation on startup
-            if licenseManager.activationId != nil || !userDefaults.bool(forKey: "VoiceInkLicenseRequiresActivation") {
+            if licenseManager.activationId != nil || !userDefaults.bool(forKey: "TalaLicenseRequiresActivation") {
                 licenseState = .licensed
                 activationsLimit = userDefaults.activationsLimit
                 return
@@ -55,10 +55,10 @@ class LicenseViewModel: ObservableObject {
         }
 
         // Check if this is first launch
-        let hasLaunchedBefore = userDefaults.bool(forKey: "VoiceInkHasLaunchedBefore")
+        let hasLaunchedBefore = userDefaults.bool(forKey: "TalaHasLaunchedBefore")
         if !hasLaunchedBefore {
             // First launch - start trial automatically
-            userDefaults.set(true, forKey: "VoiceInkHasLaunchedBefore")
+            userDefaults.set(true, forKey: "TalaHasLaunchedBefore")
             startTrial()
             return
         }
@@ -87,11 +87,7 @@ class LicenseViewModel: ObservableObject {
         }
     }
     
-    func openPurchaseLink() {
-        if let url = URL(string: "https://tryvoiceink.com/buy") {
-            NSWorkspace.shared.open(url)
-        }
-    }
+    func openPurchaseLink() {}
     
     func validateLicense() async {
         guard !licenseKey.isEmpty else {
@@ -138,14 +134,14 @@ class LicenseViewModel: ObservableObject {
 
                 // Store activation details
                 licenseManager.activationId = newActivationId
-                userDefaults.set(true, forKey: "VoiceInkLicenseRequiresActivation")
+                userDefaults.set(true, forKey: "TalaLicenseRequiresActivation")
                 self.activationsLimit = limit
                 userDefaults.activationsLimit = limit
 
             } else {
                 // This license doesn't require activation (unlimited devices)
                 licenseManager.activationId = nil
-                userDefaults.set(false, forKey: "VoiceInkLicenseRequiresActivation")
+                userDefaults.set(false, forKey: "TalaLicenseRequiresActivation")
                 self.activationsLimit = licenseCheck.activationsLimit ?? 0
                 userDefaults.activationsLimit = licenseCheck.activationsLimit ?? 0
 
@@ -180,7 +176,7 @@ class LicenseViewModel: ObservableObject {
         } catch {
             validationSuccess = false
             logger.error("🔑 Unexpected license error: \(error, privacy: .public)")
-            validationMessage = "An unexpected error occurred. Please try again or contact support at support@tryvoiceink.com"
+            validationMessage = "An unexpected error occurred. Please try again or contact support at support@trytala.com"
         }
         
         isValidating = false
@@ -191,8 +187,8 @@ class LicenseViewModel: ObservableObject {
         licenseManager.removeAll()
 
         // Reset UserDefaults flags
-        userDefaults.set(false, forKey: "VoiceInkLicenseRequiresActivation")
-        userDefaults.set(false, forKey: "VoiceInkHasLaunchedBefore")  // Allow trial to restart
+        userDefaults.set(false, forKey: "TalaLicenseRequiresActivation")
+        userDefaults.set(false, forKey: "TalaHasLaunchedBefore")  // Allow trial to restart
         userDefaults.activationsLimit = 0
 
         licenseState = .trial(daysRemaining: trialPeriodDays)  // Reset to trial state
@@ -208,7 +204,7 @@ class LicenseViewModel: ObservableObject {
 // UserDefaults extension for non-sensitive license settings
 extension UserDefaults {
     var activationsLimit: Int {
-        get { integer(forKey: "VoiceInkActivationsLimit") }
-        set { set(newValue, forKey: "VoiceInkActivationsLimit") }
+        get { integer(forKey: "TalaActivationsLimit") }
+        set { set(newValue, forKey: "TalaActivationsLimit") }
     }
 }

@@ -28,14 +28,14 @@
 			containerPortal = E11473A82CBE0F0A00318EE4 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E11473AF2CBE0F0A00318EE4;
-			remoteInfo = VoiceInk;
+			remoteInfo = Tala;
 		};
 		E11473CE2CBE0F0B00318EE4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E11473A82CBE0F0A00318EE4 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E11473AF2CBE0F0A00318EE4;
-			remoteInfo = VoiceInk;
+			remoteInfo = Tala;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -55,9 +55,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E11473B02CBE0F0A00318EE4 /* VoiceInk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceInk.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E11473C32CBE0F0B00318EE4 /* VoiceInkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoiceInkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E11473CD2CBE0F0B00318EE4 /* VoiceInkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoiceInkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11473B02CBE0F0A00318EE4 /* Tala.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tala.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11473C32CBE0F0B00318EE4 /* TalaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11473CD2CBE0F0B00318EE4 /* TalaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E161D4A02F41ECB90086F83D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		E1A0BD052EB1E7B800266859 /* whisper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = whisper.xcframework; path = "$(HOME)/VoiceInk-Dependencies/whisper.cpp/build-apple/whisper.xcframework"; sourceTree = "<group>"; };
 		E1B2DCAA2E3DE70A008DFD68 /* whisper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = whisper.xcframework; path = "../whisper.cpp/build-apple/whisper.xcframework"; sourceTree = "<group>"; };
@@ -65,17 +65,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		E11473B22CBE0F0A00318EE4 /* VoiceInk */ = {
+		E11473B22CBE0F0A00318EE4 /* Tala */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = VoiceInk;
 			sourceTree = "<group>";
 		};
-		E11473C62CBE0F0B00318EE4 /* VoiceInkTests */ = {
+		E11473C62CBE0F0B00318EE4 /* TalaTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = VoiceInkTests;
 			sourceTree = "<group>";
 		};
-		E11473D02CBE0F0B00318EE4 /* VoiceInkUITests */ = {
+		E11473D02CBE0F0B00318EE4 /* TalaUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = VoiceInkUITests;
 			sourceTree = "<group>";
@@ -121,9 +121,9 @@
 		E11473A72CBE0F0A00318EE4 = {
 			isa = PBXGroup;
 			children = (
-				E11473B22CBE0F0A00318EE4 /* VoiceInk */,
-				E11473C62CBE0F0B00318EE4 /* VoiceInkTests */,
-				E11473D02CBE0F0B00318EE4 /* VoiceInkUITests */,
+				E11473B22CBE0F0A00318EE4 /* Tala */,
+				E11473C62CBE0F0B00318EE4 /* TalaTests */,
+				E11473D02CBE0F0B00318EE4 /* TalaUITests */,
 				E114741C2CBE1DE200318EE4 /* Frameworks */,
 				E11473B12CBE0F0A00318EE4 /* Products */,
 			);
@@ -132,9 +132,9 @@
 		E11473B12CBE0F0A00318EE4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E11473B02CBE0F0A00318EE4 /* VoiceInk.app */,
-				E11473C32CBE0F0B00318EE4 /* VoiceInkTests.xctest */,
-				E11473CD2CBE0F0B00318EE4 /* VoiceInkUITests.xctest */,
+				E11473B02CBE0F0A00318EE4 /* Tala.app */,
+				E11473C32CBE0F0B00318EE4 /* TalaTests.xctest */,
+				E11473CD2CBE0F0B00318EE4 /* TalaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,9 +153,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E11473AF2CBE0F0A00318EE4 /* VoiceInk */ = {
+		E11473AF2CBE0F0A00318EE4 /* Tala */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E11473D72CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "VoiceInk" */;
+			buildConfigurationList = E11473D72CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "Tala" */;
 			buildPhases = (
 				E11473AC2CBE0F0A00318EE4 /* Sources */,
 				E11473AD2CBE0F0A00318EE4 /* Frameworks */,
@@ -167,9 +167,9 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				E11473B22CBE0F0A00318EE4 /* VoiceInk */,
+				E11473B22CBE0F0A00318EE4 /* Tala */,
 			);
-			name = VoiceInk;
+			name = Tala;
 			packageProductDependencies = (
 				E1A261112CC143AC00B233D1 /* KeyboardShortcuts */,
 				E1ADD4592CC5352A00303ECB /* LaunchAtLogin */,
@@ -181,13 +181,13 @@
 				E1DD20DD2FA20AD90020AF3B /* FluidAudio */,
 				E1DD20E02FA20AEE0020AF3B /* LLMkit */,
 			);
-			productName = VoiceInk;
-			productReference = E11473B02CBE0F0A00318EE4 /* VoiceInk.app */;
+			productName = Tala;
+			productReference = E11473B02CBE0F0A00318EE4 /* Tala.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E11473C22CBE0F0B00318EE4 /* VoiceInkTests */ = {
+		E11473C22CBE0F0B00318EE4 /* TalaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E11473DA2CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "VoiceInkTests" */;
+			buildConfigurationList = E11473DA2CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "TalaTests" */;
 			buildPhases = (
 				E11473BF2CBE0F0B00318EE4 /* Sources */,
 				E11473C02CBE0F0B00318EE4 /* Frameworks */,
@@ -199,18 +199,18 @@
 				E11473C52CBE0F0B00318EE4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				E11473C62CBE0F0B00318EE4 /* VoiceInkTests */,
+				E11473C62CBE0F0B00318EE4 /* TalaTests */,
 			);
-			name = VoiceInkTests;
+			name = TalaTests;
 			packageProductDependencies = (
 			);
-			productName = VoiceInkTests;
-			productReference = E11473C32CBE0F0B00318EE4 /* VoiceInkTests.xctest */;
+			productName = TalaTests;
+			productReference = E11473C32CBE0F0B00318EE4 /* TalaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E11473CC2CBE0F0B00318EE4 /* VoiceInkUITests */ = {
+		E11473CC2CBE0F0B00318EE4 /* TalaUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E11473DD2CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "VoiceInkUITests" */;
+			buildConfigurationList = E11473DD2CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "TalaUITests" */;
 			buildPhases = (
 				E11473C92CBE0F0B00318EE4 /* Sources */,
 				E11473CA2CBE0F0B00318EE4 /* Frameworks */,
@@ -222,13 +222,13 @@
 				E11473CF2CBE0F0B00318EE4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				E11473D02CBE0F0B00318EE4 /* VoiceInkUITests */,
+				E11473D02CBE0F0B00318EE4 /* TalaUITests */,
 			);
-			name = VoiceInkUITests;
+			name = TalaUITests;
 			packageProductDependencies = (
 			);
-			productName = VoiceInkUITests;
-			productReference = E11473CD2CBE0F0B00318EE4 /* VoiceInkUITests.xctest */;
+			productName = TalaUITests;
+			productReference = E11473CD2CBE0F0B00318EE4 /* TalaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -254,7 +254,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E11473AB2CBE0F0A00318EE4 /* Build configuration list for PBXProject "VoiceInk" */;
+			buildConfigurationList = E11473AB2CBE0F0A00318EE4 /* Build configuration list for PBXProject "Tala" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -279,9 +279,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E11473AF2CBE0F0A00318EE4 /* VoiceInk */,
-				E11473C22CBE0F0B00318EE4 /* VoiceInkTests */,
-				E11473CC2CBE0F0B00318EE4 /* VoiceInkUITests */,
+				E11473AF2CBE0F0A00318EE4 /* Tala */,
+				E11473C22CBE0F0B00318EE4 /* TalaTests */,
+				E11473CC2CBE0F0B00318EE4 /* TalaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -337,12 +337,12 @@
 /* Begin PBXTargetDependency section */
 		E11473C52CBE0F0B00318EE4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E11473AF2CBE0F0A00318EE4 /* VoiceInk */;
+			target = E11473AF2CBE0F0A00318EE4 /* Tala */;
 			targetProxy = E11473C42CBE0F0B00318EE4 /* PBXContainerItemProxy */;
 		};
 		E11473CF2CBE0F0B00318EE4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E11473AF2CBE0F0A00318EE4 /* VoiceInk */;
+			target = E11473AF2CBE0F0A00318EE4 /* Tala */;
 			targetProxy = E11473CE2CBE0F0B00318EE4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -484,7 +484,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VoiceInk/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = VoiceInk;
+				INFOPLIST_KEY_CFBundleDisplayName = Tala;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -493,7 +493,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.76;
-				PRODUCT_BUNDLE_IDENTIFIER = com.prakashjoshipax.VoiceInk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.prakashjoshipax.Tala;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG ENABLE_NATIVE_SPEECH_ANALYZER $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -518,7 +518,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VoiceInk/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = VoiceInk;
+				INFOPLIST_KEY_CFBundleDisplayName = Tala;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -527,7 +527,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.76;
-				PRODUCT_BUNDLE_IDENTIFIER = com.prakashjoshipax.VoiceInk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.prakashjoshipax.Tala;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "ENABLE_NATIVE_SPEECH_ANALYZER $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -545,11 +545,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.prakashjoshipax.VoiceInkTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.prakashjoshipax.TalaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoiceInk.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VoiceInk";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tala.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tala";
 			};
 			name = Debug;
 		};
@@ -563,11 +563,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.prakashjoshipax.VoiceInkTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.prakashjoshipax.TalaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoiceInk.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VoiceInk";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tala.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tala";
 			};
 			name = Release;
 		};
@@ -579,11 +579,11 @@
 				DEVELOPMENT_TEAM = V6J6A3VWY2;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.prakashjoshipax.VoiceInkUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.prakashjoshipax.TalaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = VoiceInk;
+				TEST_TARGET_NAME = Tala;
 			};
 			name = Debug;
 		};
@@ -595,18 +595,18 @@
 				DEVELOPMENT_TEAM = V6J6A3VWY2;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.prakashjoshipax.VoiceInkUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.prakashjoshipax.TalaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = VoiceInk;
+				TEST_TARGET_NAME = Tala;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E11473AB2CBE0F0A00318EE4 /* Build configuration list for PBXProject "VoiceInk" */ = {
+		E11473AB2CBE0F0A00318EE4 /* Build configuration list for PBXProject "Tala" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E11473D52CBE0F0B00318EE4 /* Debug */,
@@ -615,7 +615,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E11473D72CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "VoiceInk" */ = {
+		E11473D72CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "Tala" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E11473D82CBE0F0B00318EE4 /* Debug */,
@@ -624,7 +624,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E11473DA2CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "VoiceInkTests" */ = {
+		E11473DA2CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "TalaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E11473DB2CBE0F0B00318EE4 /* Debug */,
@@ -633,7 +633,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E11473DD2CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "VoiceInkUITests" */ = {
+		E11473DD2CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "TalaUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E11473DE2CBE0F0B00318EE4 /* Debug */,

@@ -1,6 +1,6 @@
 import Foundation
 
-enum VoiceInkEngineError: Error, Identifiable {
+enum TalaEngineError: Error, Identifiable {
     case modelLoadFailed
     case transcriptionFailed
     case whisperCoreFailed
@@ -10,7 +10,7 @@ enum VoiceInkEngineError: Error, Identifiable {
     var id: String { UUID().uuidString }
 }
 
-extension VoiceInkEngineError: LocalizedError {
+extension TalaEngineError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .modelLoadFailed:
@@ -43,4 +43,4 @@ extension VoiceInkEngineError: LocalizedError {
 }
 
 // Backward compatibility
-typealias WhisperStateError = VoiceInkEngineError
+typealias WhisperStateError = TalaEngineError

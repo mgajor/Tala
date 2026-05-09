@@ -38,15 +38,15 @@ class RecorderUIManager: ObservableObject {
     var notchWindowManager: NotchWindowManager?
     var miniWindowManager: MiniWindowManager?
 
-    private weak var engine: VoiceInkEngine?
+    private weak var engine: TalaEngine?
     private var recorder: Recorder?
 
-    private let logger = Logger(subsystem: "com.prakashjoshipax.voiceink", category: "RecorderUIManager")
+    private let logger = Logger(subsystem: "com.prakashjoshipax.tala", category: "RecorderUIManager")
 
     init() {}
 
-    /// Call after VoiceInkEngine is created to break the circular init dependency.
-    func configure(engine: VoiceInkEngine, recorder: Recorder) {
+    /// Call after TalaEngine is created to break the circular init dependency.
+    func configure(engine: TalaEngine, recorder: Recorder) {
         self.engine = engine
         self.recorder = recorder
         setupNotifications()

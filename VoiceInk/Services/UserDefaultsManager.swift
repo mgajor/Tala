@@ -5,7 +5,7 @@ extension UserDefaults {
         static let audioInputMode = "audioInputMode"
         static let selectedAudioDeviceUID = "selectedAudioDeviceUID"
         static let prioritizedDevices = "prioritizedDevices"
-        static let affiliatePromotionDismissed = "VoiceInkAffiliatePromotionDismissed"
+        static let affiliatePromotionDismissed = "TalaAffiliatePromotionDismissed"
     }
 
     // MARK: - Audio Input Mode

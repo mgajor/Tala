@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E11473AF2CBE0F0A00318EE4"
-               BuildableName = "VoiceInk.app"
-               BlueprintName = "VoiceInk"
+               BuildableName = "Tala.app"
+               BlueprintName = "Tala"
                ReferencedContainer = "container:VoiceInk.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -36,8 +36,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E11473C22CBE0F0B00318EE4"
-               BuildableName = "VoiceInkTests.xctest"
-               BlueprintName = "VoiceInkTests"
+               BuildableName = "TalaTests.xctest"
+               BlueprintName = "TalaTests"
                ReferencedContainer = "container:VoiceInk.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -47,8 +47,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E11473CC2CBE0F0B00318EE4"
-               BuildableName = "VoiceInkUITests.xctest"
-               BlueprintName = "VoiceInkUITests"
+               BuildableName = "TalaUITests.xctest"
+               BlueprintName = "TalaUITests"
                ReferencedContainer = "container:VoiceInk.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -69,8 +69,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E11473AF2CBE0F0A00318EE4"
-            BuildableName = "VoiceInk.app"
-            BlueprintName = "VoiceInk"
+            BuildableName = "Tala.app"
+            BlueprintName = "Tala"
             ReferencedContainer = "container:VoiceInk.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -86,8 +86,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E11473AF2CBE0F0A00318EE4"
-            BuildableName = "VoiceInk.app"
-            BlueprintName = "VoiceInk"
+            BuildableName = "Tala.app"
+            BlueprintName = "Tala"
             ReferencedContainer = "container:VoiceInk.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

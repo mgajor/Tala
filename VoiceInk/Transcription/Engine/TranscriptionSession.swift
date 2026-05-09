@@ -33,7 +33,7 @@ final class FileTranscriptionSession: TranscriptionSession {
 
     func transcribe(audioURL: URL) async throws -> String {
         guard let model = model else {
-            throw VoiceInkEngineError.transcriptionFailed
+            throw TalaEngineError.transcriptionFailed
         }
         return try await service.transcribe(audioURL: audioURL, model: model)
     }
@@ -52,7 +52,7 @@ final class StreamingTranscriptionSession: TranscriptionSession {
     private let fallbackService: TranscriptionService
     private var model: (any TranscriptionModel)?
     private var streamingFailed = false
-    private let logger = Logger(subsystem: "com.prakashjoshipax.voiceink", category: "StreamingTranscriptionSession")
+    private let logger = Logger(subsystem: "com.prakashjoshipax.tala", category: "StreamingTranscriptionSession")
 
     init(streamingService: StreamingTranscriptionService, fallbackService: TranscriptionService) {
         self.streamingService = streamingService
@@ -87,7 +87,7 @@ final class StreamingTranscriptionSession: TranscriptionSession {
 
     func transcribe(audioURL: URL) async throws -> String {
         guard let model = model else {
-            throw VoiceInkEngineError.transcriptionFailed
+            throw TalaEngineError.transcriptionFailed
         }
 
         if !streamingFailed {

@@ -73,7 +73,7 @@ class WhisperModelManager: ObservableObject {
     /// TranscriptionModelManager can rebuild allAvailableModels.
     var onModelsChanged: (() -> Void)?
 
-    let logger = Logger(subsystem: "com.prakashjoshipax.voiceink", category: "WhisperModelManager")
+    let logger = Logger(subsystem: "com.prakashjoshipax.tala", category: "WhisperModelManager")
 
     init(modelsDirectory: URL) {
         self.modelsDirectory = modelsDirectory
@@ -118,7 +118,7 @@ class WhisperModelManager: ObservableObject {
             isModelLoaded = true
             loadedWhisperModel = model
         } catch {
-            throw VoiceInkEngineError.modelLoadFailed
+            throw TalaEngineError.modelLoadFailed
         }
     }
 
@@ -273,7 +273,7 @@ class WhisperModelManager: ObservableObject {
         var isDirectory: ObjCBool = false
         guard FileManager.default.fileExists(atPath: destination.path, isDirectory: &isDirectory), isDirectory.boolValue else {
             try? FileManager.default.removeItem(at: zipPath)
-            throw VoiceInkEngineError.unzipFailed
+            throw TalaEngineError.unzipFailed
         }
 
         try? FileManager.default.removeItem(at: zipPath)
@@ -336,7 +336,7 @@ class WhisperModelManager: ObservableObject {
     // MARK: - Resource Management
 
     /// Releases the WhisperContext and resets model-loaded state.
-    /// Does NOT call serviceRegistry.cleanup() — that is VoiceInkEngine's responsibility.
+    /// Does NOT call serviceRegistry.cleanup() — that is TalaEngine's responsibility.
     func cleanupResources() async {
         logger.notice("WhisperModelManager.cleanupResources: releasing whisper context")
         await whisperContext?.releaseResources()

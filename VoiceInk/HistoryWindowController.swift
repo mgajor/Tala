@@ -6,14 +6,14 @@ class HistoryWindowController: NSObject, NSWindowDelegate {
     static let shared = HistoryWindowController()
 
     private var historyWindow: NSWindow?
-    private let windowIdentifier = NSUserInterfaceItemIdentifier("com.prakashjoshipax.voiceink.historyWindow")
-    private let windowAutosaveName = NSWindow.FrameAutosaveName("VoiceInkHistoryWindowFrame")
+    private let windowIdentifier = NSUserInterfaceItemIdentifier("com.prakashjoshipax.tala.historyWindow")
+    private let windowAutosaveName = NSWindow.FrameAutosaveName("TalaHistoryWindowFrame")
 
     private override init() {
         super.init()
     }
 
-    func showHistoryWindow(modelContainer: ModelContainer, engine: VoiceInkEngine) {
+    func showHistoryWindow(modelContainer: ModelContainer, engine: TalaEngine) {
         if let existingWindow = historyWindow {
             if existingWindow.isMiniaturized {
                 existingWindow.deminiaturize(nil)
@@ -29,7 +29,7 @@ class HistoryWindowController: NSObject, NSWindowDelegate {
         NSApplication.shared.activate(ignoringOtherApps: true)
     }
 
-    private func createHistoryWindow(modelContainer: ModelContainer, engine: VoiceInkEngine) -> NSWindow {
+    private func createHistoryWindow(modelContainer: ModelContainer, engine: TalaEngine) -> NSWindow {
         let historyView = TranscriptionHistoryView()
             .modelContainer(modelContainer)
             .environmentObject(engine)
@@ -46,7 +46,7 @@ class HistoryWindowController: NSObject, NSWindowDelegate {
         )
 
         window.contentViewController = hostingController
-        window.title = "VoiceInk — Transcription History"
+        window.title = "Tala — Transcription History"
         window.identifier = windowIdentifier
         window.delegate = self
         window.titlebarAppearsTransparent = true

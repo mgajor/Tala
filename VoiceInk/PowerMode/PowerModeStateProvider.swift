@@ -1,6 +1,6 @@
 import Foundation
 
-/// Protocol that VoiceInkEngine conforms to for power mode session management.
+/// Protocol that TalaEngine conforms to for power mode session management.
 @MainActor
 protocol PowerModeStateProvider: AnyObject {
     var currentTranscriptionModel: (any TranscriptionModel)? { get }

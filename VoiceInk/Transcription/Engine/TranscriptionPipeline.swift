@@ -11,7 +11,7 @@ class TranscriptionPipeline {
     private let serviceRegistry: TranscriptionServiceRegistry
     private let enhancementService: AIEnhancementService?
     private let promptDetectionService = PromptDetectionService()
-    private let logger = Logger(subsystem: "com.prakashjoshipax.voiceink", category: "TranscriptionPipeline")
+    private let logger = Logger(subsystem: "com.prakashjoshipax.tala", category: "TranscriptionPipeline")
 
     var licenseViewModel: LicenseViewModel
 
@@ -194,15 +194,8 @@ class TranscriptionPipeline {
         }
 
         let dismissTask: Task<Void, Never>?
-        if var textToPaste = finalPastedText,
+        if let textToPaste = finalPastedText,
            transcription.transcriptionStatus == TranscriptionStatus.completed.rawValue {
-            if case .trialExpired = licenseViewModel.licenseState {
-                textToPaste = """
-                    Your trial has expired. Upgrade to VoiceInk Pro at tryvoiceink.com/buy
-                    \n\(textToPaste)
-                    """
-            }
-
             let appendSpace = UserDefaults.standard.bool(forKey: "AppendTrailingSpace")
             let pastedText = textToPaste + (appendSpace ? " " : "")
             let pastePostTask = CursorPaster.startPasteAtCursor(pastedText)

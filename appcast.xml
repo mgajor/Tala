@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="yes"?>
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
-        <title>VoiceInk</title>
+        <title>Tala</title>
         <item>
             <title>1.76</title>
             <description><![CDATA[
@@ -20,7 +20,7 @@
             <sparkle:version>176</sparkle:version>
             <sparkle:shortVersionString>1.76</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/Beingpax/VoiceInk/releases/download/v1.76/VoiceInk.dmg" length="14248109" type="application/octet-stream" sparkle:edSignature="VIHBaVue5hfpx8nQsB0VS3tliha3Dx8B/MWZ5vRNWNNufmjh3P86VRKt/vH1sVfV37g7I84TVpuTaPc0YRAxCw=="/>
+            <enclosure url="https://github.com/Beingpax/Tala/releases/download/v1.76/Tala.dmg" length="14248109" type="application/octet-stream" sparkle:edSignature="VIHBaVue5hfpx8nQsB0VS3tliha3Dx8B/MWZ5vRNWNNufmjh3P86VRKt/vH1sVfV37g7I84TVpuTaPc0YRAxCw=="/>
         </item>
     </channel>
 </rss>

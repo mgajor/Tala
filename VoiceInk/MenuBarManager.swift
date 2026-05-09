@@ -4,7 +4,7 @@ import AppKit
 import OSLog
 
 class MenuBarManager: ObservableObject {
-    private let logger = Logger(subsystem: "com.prakashjoshipax.voiceink", category: "MenuBarManager")
+    private let logger = Logger(subsystem: "com.prakashjoshipax.tala", category: "MenuBarManager")
     @Published var isMenuBarOnly: Bool {
         didSet {
             UserDefaults.standard.set(isMenuBarOnly, forKey: "IsMenuBarOnly")
@@ -13,7 +13,7 @@ class MenuBarManager: ObservableObject {
     }
 
     private var modelContainer: ModelContainer?
-    private var engine: VoiceInkEngine?
+    private var engine: TalaEngine?
 
     init() {
         self.isMenuBarOnly = UserDefaults.standard.bool(forKey: "IsMenuBarOnly")
@@ -45,7 +45,7 @@ class MenuBarManager: ObservableObject {
         }
     }
 
-    func configure(modelContainer: ModelContainer, engine: VoiceInkEngine) {
+    func configure(modelContainer: ModelContainer, engine: TalaEngine) {
         self.modelContainer = modelContainer
         self.engine = engine
     }
